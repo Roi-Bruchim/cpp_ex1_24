@@ -15,5 +15,5 @@ We also has the files Algorithms.hpp and Algorithms.cpp for methods for graph.
 - *isContainsCycle*: This method check if the graph has cycles, using recursive helper method of DFS algorithm.
 - *isBipartite*: This method check if the graph is Bipartite and returns the divided groups.
 - *negativeCycle*: Helper method that used in Berman Ford shortestPath function to decide if we have a negativeCycle in the graph.
-- 
+  
 There also is a test file that check all the functions.
