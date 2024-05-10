@@ -131,3 +131,46 @@ TEST_CASE("more tests")
 }
 
 
+TEST_CASE("more test2")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {
+            {0, 0, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0}};
+    g.loadGraph(graph);
+    CHECK(ariel::Algorithms::isConnected(g) == false);
+    CHECK(ariel::Algorithms::shortestPath(g, 0, 3) == "-1");
+    CHECK(ariel::Algorithms::isContainsCycle(g) == false);
+
+}
+
+TEST_CASE("more test3")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {
+            {0, 1, 0, 4},
+            {1, 0, 1, 0},
+            {0, 1, 0, 1},
+            {4, 0, 1, 0}};
+    g.loadGraph(graph);
+    CHECK(ariel::Algorithms::isConnected(g) == true);
+    CHECK(ariel::Algorithms::shortestPath(g, 0, 3) == "0->1->2->3");
+    CHECK(ariel::Algorithms::isContainsCycle(g) == true);
+    CHECK(ariel::Algorithms::isBipartite(g) == "The graph is bipartite: A={0, 2}, B={1, 3}");
+}
+
+TEST_CASE("more test4")
+{
+    ariel::Graph g;
+    vector<vector<int>> graph = {
+            {0, 3, 5},
+            {3, 0, 1},
+            {5, 1, 0}};
+    g.loadGraph(graph);
+    CHECK(ariel::Algorithms::isConnected(g) == true);
+    CHECK(ariel::Algorithms::shortestPath(g, 0, 2) == "0->1->2");
+    CHECK(ariel::Algorithms::isContainsCycle(g) == true);
+    CHECK(ariel::Algorithms::isBipartite(g) == "0");
+}
